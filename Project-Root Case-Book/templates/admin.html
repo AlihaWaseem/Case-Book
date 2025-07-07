@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | Social Nest</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="html.css" />
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px;
+    }
+    .section {
+      background: var(--bg-color);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+    h2 {
+      margin-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table th, table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    .action-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .block-btn {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .delete-btn {
+      background-color: #999;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img src="logo2.png" class="logo" />
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search" />
+      </div>
+      <div class="nav-user-icon online">
+        <img src="pexel7.jpg" class="profile-pic" />
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="section">
+      <h2>Manage Users</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>Active</td>
+            <td>
+              <button class="action-btn block-btn">Block</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Maria Gomez</td>
+            <td>maria@example.com</td>
+            <td>Active</td>
+            <td>
+              <button class="action-btn block-btn">Block</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Manage Posts</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Post</th>
+            <th>User</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>"Great day at the beach!"</td>
+            <td>Olivia Smith</td>
+            <td>June 30, 2025</td>
+            <td>
+              <button class="action-btn delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>"Learning Flask and loving it."</td>
+            <td>Jackson Lee</td>
+            <td>June 29, 2025</td>
+            <td>
+              <button class="action-btn delete-btn">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

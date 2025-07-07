@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results | Social Nest</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="html.css">
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px;
+    }
+    .section {
+      background: var(--bg-color);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      margin-bottom: 15px;
+    }
+    .result-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 12px;
+      border-bottom: 1px solid #ccc;
+    }
+    .result-item img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      margin-right: 15px;
+      object-fit: cover;
+    }
+    .result-info {
+      flex: 1;
+    }
+    .result-info h4 {
+      margin: 0 0 5px;
+    }
+    .result-info p {
+      font-size: 14px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img src="logo2.png" class="logo">
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="nav-user-icon online">
+        <img src="pexel7.jpg" class="profile-pic">
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="section">
+      <h2>Search Results for "web developer"</h2>
+
+      <div class="result-item">
+        <img src="person1.jpg" alt="">
+        <div class="result-info">
+          <h4>John Doe</h4>
+          <p>User — Web Developer at SoftCorp</p>
+        </div>
+      </div>
+
+      <div class="result-item">
+        <img src="group.jpg" alt="">
+        <div class="result-info">
+          <h4>Web Developers Group</h4>
+          <p>Group — 3,500 Members</p>
+        </div>
+      </div>
+
+      <div class="result-item">
+        <img src="page.jpg" alt="">
+        <div class="result-info">
+          <h4>Frontend Weekly</h4>
+          <p>Page — 12,000 Followers</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

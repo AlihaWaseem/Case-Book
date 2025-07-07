@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Support | Social Nest</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="html.css">
+  <style>
+    body {
+      background: var(--body-color);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .help-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px;
+      background: var(--bg-color);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .help-container h2 {
+      text-align: center;
+      color: #1876f2;
+      margin-bottom: 30px;
+    }
+    .faq {
+      margin-bottom: 25px;
+    }
+    .faq h4 {
+      margin: 0 0 8px;
+      color: #333;
+    }
+    .faq p {
+      color: #555;
+      font-size: 14px;
+    }
+    .contact-support {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+    .contact-support h4 {
+      margin-bottom: 10px;
+    }
+    .contact-support input, .contact-support textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    .contact-support button {
+      background: #1876f2;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="help-container">
+    <h2>Help & Support</h2>
+
+    <div class="faq">
+      <h4>🔐 How do I reset my password?</h4>
+      <p>Go to Settings > Account > Reset Password and follow the instructions sent to your email.</p>
+    </div>
+
+    <div class="faq">
+      <h4>📷 How do I upload a story?</h4>
+      <p>Click on the 'Post Story' button in your feed and upload an image or video.</p>
+    </div>
+
+    <div class="faq">
+      <h4>👤 How do I update my profile information?</h4>
+      <p>Go to your Profile page and click 'Edit Profile' to update your name, bio, and profile picture.</p>
+    </div>
+
+    <div class="faq">
+      <h4>🔔 I'm not receiving notifications. What should I do?</h4>
+      <p>Ensure that notifications are enabled in your account settings and browser permission is granted.</p>
+    </div>
+
+    <div class="contact-support">
+      <h4>Still need help?</h4>
+      <form id="supportForm">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Describe your issue..." rows="4" required></textarea>
+        <button type="submit">Send Request</button>
+      </form>
+      <p id="supportSuccess" style="display:none; color: green; margin-top: 10px;">Your request has been sent. We'll contact you shortly!</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("supportForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("supportSuccess").style.display = "block";
+      this.reset();
+    });
+  </script>
+</body>
+</html>

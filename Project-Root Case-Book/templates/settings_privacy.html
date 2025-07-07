@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings & Privacy | Social Nest</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="html.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--body-color);
+      padding: 0;
+      margin: 0;
+    }
+    .settings-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--bg-color);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+    .settings-container h2 {
+      margin-bottom: 25px;
+      color: #1876f2;
+      text-align: center;
+    }
+    .setting-section {
+      margin-bottom: 30px;
+    }
+    .setting-section h4 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .setting-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .setting-option span {
+      font-size: 15px;
+    }
+    .setting-option input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+    .account-actions {
+      margin-top: 30px;
+    }
+    .account-actions button {
+      background: #1876f2;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      margin-right: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .account-actions button.logout {
+      background: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+  <div class="settings-container">
+    <h2>Settings & Privacy</h2>
+
+    <div class="setting-section">
+      <h4>Privacy Settings</h4>
+      <div class="setting-option">
+        <span>Make profile private</span>
+        <input type="checkbox" />
+      </div>
+      <div class="setting-option">
+        <span>Allow friend requests</span>
+        <input type="checkbox" checked />
+      </div>
+      <div class="setting-option">
+        <span>Show online status</span>
+        <input type="checkbox" checked />
+      </div>
+    </div>
+
+    <div class="setting-section">
+      <h4>Account Preferences</h4>
+      <div class="setting-option">
+        <span>Dark mode</span>
+        <input type="checkbox" id="toggleDarkMode" />
+      </div>
+      <div class="setting-option">
+        <span>Email notifications</span>
+        <input type="checkbox" checked />
+      </div>
+    </div>
+
+    <div class="account-actions">
+      <button onclick="alert('Settings saved!')">Save Settings</button>
+      <button class="logout" onclick="alert('You have been logged out.')">Log Out</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("toggleDarkMode").addEventListener("change", function () {
+      document.body.classList.toggle("dark-theme");
+      localStorage.setItem("theme", this.checked ? "dark" : "light");
+    });
+
+    // Load dark mode state
+    window.addEventListener("DOMContentLoaded", () => {
+      const isDark = localStorage.getItem("theme") === "dark";
+      if (isDark) {
+        document.body.classList.add("dark-theme");
+        document.getElementById("toggleDarkMode").checked = true;
+      }
+    });
+  </script>
+</body>
+</html>

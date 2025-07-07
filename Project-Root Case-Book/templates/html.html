@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Nest</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/html.css') }}" >
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img src="logo2.png" class="logo">
+      <ul>
+        <li><img src="notification2.png"></li>
+        <li><img src="mail2.png"></li>
+        <li><img src="video2.png"></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="search">
+      </div>
+      <div class="nav-user-icon online" onclick="settingmenuToggle()">
+        <img src="pexel7.jpg" alt="Profile Picture" class="profile-pic">
+      </div>
+    </div>
+    <div class="setting-menu">
+      <div id="dark-btn">
+        <span></span>
+      </div>
+      <div class="settings-menu-inner">
+        <div class="user-profile">
+          <img src="pexel7.jpg">
+          <div>
+           <p id="nav-username">Guest</p>
+            <a href="profiles.html">See Your Profile</a>
+          </div>
+        </div>
+        <hr>
+        <div class="setting-links">
+          <img src="setting.png" class="setting-icon">
+          <a href="settings_privacy.html">Settings & Privacy <img src="arrow right.png" width="10px"></a>
+        </div>
+        <div class="setting-links">
+          <img src="help.png" class="setting-icon">
+          <a href="help_support.html">Help & Support <img src="arrow right.png" width="10px"></a>
+        </div>
+        <div class="setting-links">
+          <img src="display.png" class="setting-icon">
+          <a href="display_accessibility.html">Display & Accessibility <img src="arrow right.png" width="10px"></a>
+        </div>
+        <div class="setting-links">
+          <img src="logout.png" class="setting-icon">
+          <a href="logout.html">Log Out <img src="arrow right.png" width="10px"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+
+  <div class="container">
+    <div class="left-sidebar">
+      <div class="imp-links">
+        <a href="latestnews.html"><i class='bx bx-news'></i> Latestnews</a>
+        <a href="group.html"><i class='bx bx-group'></i> Groups</a>
+        <a href="#"><i class='bx bx-user'></i> Friends</a>
+        <a href="#"><i class='bx bx-store'></i> MarketPlace</a>
+        <a href="#"><i class='bx bx-tv'></i> Watch</a>
+        <a href="#"> See More </a>
+      </div>
+      <div class="shortcut-links">
+        <p>Your shortcuts</p>
+        <div class="imp-links1">
+          <a href="#"><img src="shortcut1.jpg"> Web Developers</a>
+          <a href="#"><img src="shortcut2.jpg"> Web Design Course</a>
+          <a href="#"><img src="shortcut3.jpg"> Full Stack Development</a>
+          <a href="#"><img src="shortcut4.jpg"> Website Experts</a>
+        </div>
+      </div>
+    </div>
+
+    <!-------------main-content---------- -->
+    <div class="main-content">
+      <!-- Posts will be dynamically inserted here by html.js -->
+    </div>
+
+    <div class="right-sidebar">
+      <!-- Existing right sidebar code -->
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 Social Nest Media Platform</p>
+  </div>
+
+  <script src="html.js"></script>
+</body>
+</html>
+
+

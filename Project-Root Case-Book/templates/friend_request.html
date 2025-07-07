@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friend Requests | Social Nest</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="html.css" />
+  <style>
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    .friend-request {
+      background: var(--bg-color);
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .friend-request img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .friend-info {
+      flex: 1;
+      margin-left: 15px;
+    }
+    .friend-info h4 {
+      margin: 0 0 5px;
+    }
+    .friend-actions button {
+      padding: 8px 14px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .confirm-btn {
+      background-color: #1876f2;
+      color: #fff;
+    }
+    .delete-btn {
+      background-color: #ccc;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img src="logo2.png" class="logo">
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="nav-user-icon online">
+        <img src="pexel7.jpg" class="profile-pic">
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Friend Requests</h2>
+
+    <div class="friend-request">
+      <img src="person1.jpg" alt="">
+      <div class="friend-info">
+        <h4>Olivia Smith</h4>
+        <p>Web Designer</p>
+      </div>
+      <div class="friend-actions">
+        <button class="confirm-btn">Confirm</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+
+    <div class="friend-request">
+      <img src="person2.jpg" alt="">
+      <div class="friend-info">
+        <h4>Jackson Lee</h4>
+        <p>Photographer</p>
+      </div>
+      <div class="friend-actions">
+        <button class="confirm-btn">Confirm</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+
+    <div class="friend-request">
+      <img src="person3.jpg" alt="">
+      <div class="friend-info">
+        <h4>Maria Gomez</h4>
+        <p>UI/UX Designer</p>
+      </div>
+      <div class="friend-actions">
+        <button class="confirm-btn">Confirm</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

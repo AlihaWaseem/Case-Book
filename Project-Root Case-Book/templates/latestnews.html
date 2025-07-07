@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest News</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #1876f2;
+}
+
+header {
+    background-color: #1876f2;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header left h1 a{
+    text-decoration: none;
+    display: flex;
+    align-items: left;
+    margin-bottom: 30px;
+    color: #fff;
+    width: fit-content;
+}
+header right h2 a{
+    text-decoration: none;
+    display: flex;
+    align-items: right;
+    margin-bottom: 30px;
+    color: #fff;
+    width: fit-content;
+}
+header h1 {
+    margin: 0;
+}
+
+.search-box{
+    background: #efefef;
+    width: 350px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.search-box i{
+    width: 18px;
+    color: black;
+}
+ .search-box input{
+    width: 100%;
+    background: transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+ }
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.news-article {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.news-article:hover {
+    transform: translateY(-5px);
+}
+
+.news-article h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #1876f2;
+}
+
+.news-article p {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1876f2;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <left>
+            <h1>
+            <a href="home2.html">Social Nest</a>
+            </h1>
+        </left>
+        <right>
+        <h2>
+        <a href="feed.html">Feed News</a>
+        </h2>
+         </right>
+        <h1>Latest News</h1>
+        <div class="search-box">
+            <i class='bx bx-search'></i>
+            <input type="text"  placeholder="search">
+        </div>
+        
+    </header>
+
+    <main>
+        <div class="news-container">
+            <!-- News articles will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Social Site</p>
+    </footer>
+
+    <script src="latest news.js"></script>
+</body>
+</html>

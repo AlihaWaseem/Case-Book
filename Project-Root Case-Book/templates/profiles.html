@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Social Nest</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="html.css" />
+  <style>
+    body {
+      background: var(--body-color);
+    }
+    .container {
+      display: flex;
+      padding: 20px 8%;
+      max-width: 1600px;
+      margin: auto;
+    }
+    .notification-icon {
+      position: relative;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+    .notification-icon i {
+      font-size: 24px;
+      color: #fff;
+    }
+    .notification-dropdown {
+      position: absolute;
+      top: 35px;
+      right: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      width: 300px;
+      border-radius: 6px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 999;
+    }
+    .notification-dropdown.active {
+      display: block;
+    }
+    .notification-item {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      color: #333;
+    }
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-color);
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+    }
+    .profile-header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .profile-header .bio {
+      flex-grow: 1;
+      margin-left: 25px;
+    }
+    .edit-btn {
+      background: #1876f2;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .section {
+      background: var(--bg-color);
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+    .photos img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 12px;
+    }
+    .friend-request {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .friend-request img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+    .friend-actions button {
+      margin-left: 12px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+    .confirm-btn {
+      background-color: #1876f2;
+      color: #fff;
+    }
+    .delete-btn {
+      background-color: #ccc;
+    }
+    .reaction-bar {
+      margin-top: 12px;
+    }
+    .reaction-bar button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      margin-right: 12px;
+    }
+    .comment-box {
+      display: flex;
+      margin-top: 18px;
+    }
+    .comment-box input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    .comment-box button {
+      padding: 10px 20px;
+      margin-left: 12px;
+      border-radius: 20px;
+      border: none;
+      background-color: #1876f2;
+      color: white;
+      cursor: pointer;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+    .modal-content input[type=\"file\"] {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .modal-content button {
+      background: #1876f2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .close-modal {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: #888;
+    }
+    .story-upload-btn {
+      display: inline-block;
+      background: #1876f2;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img src="logo2.png" class="logo">
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="notification-icon" onclick="toggleNotifications()">
+        <i class='bx bx-bell'></i>
+        <div class="notification-dropdown" id="notifBox">
+          <div class="notification-item">Aliya liked your post</div>
+          <div class="notification-item">Jackson commented: \"Nice work!\"</div>
+          <div class="notification-item">Olivia sent you a friend request</div>
+        </div>
+      </div>
+      <div class="nav-user-icon online">
+        <img src="pexel7.jpg" class="profile-pic">
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    function toggleNotifications() {
+      document.getElementById('notifBox').classList.toggle('active');
+    }
+    function openStoryModal() {
+      document.getElementById('storyModal').style.display = 'flex';
+    }
+    function closeStoryModal() {
+      document.getElementById('storyModal').style.display = 'none';
+    }
+  </script>
+
+  <div class="modal" id="storyModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeStoryModal()">&times;</span>
+      <h3>Upload Story</h3>
+      <input type="file" accept="image/*,video/*">
+      <br>
+      <button onclick="closeStoryModal()">Upload</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="left-sidebar">
+      <div class="imp-links">
+        <a href="#"><i class='bx bx-news'></i> Posts</a>
+        <a href="#"><i class='bx bx-user'></i> About</a>
+        <a href="#"><i class='bx bx-group'></i> Friends</a>
+        <a href="#"><i class='bx bx-camera'></i> Photos</a>
+        <a href="#"><i class='bx bx-chat'></i> Chat</a>
+        <a href="#"><i class='bx bx-bell'></i> Notifications</a>
+        <a href="#"><i class='bx bx-cog'></i> Admin Panel</a>
+        <a href="#"><i class='bx bx-user-voice'></i> Pages & Groups</a>
+        <a href="#"><i class='bx bx-search-alt'></i> Search</a>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="profile-header">
+        <img src="pexel7.jpg" alt="Profile" />
+        <div class="bio">
+          <h2>John Doe</h2>
+          <p>Web Developer at Tech Solutions</p>
+        </div>
+        <button class="edit-btn">Edit Profile</button>
+      </div>
+
+      <div class="section">
+        <h3>Intro</h3>
+        <p>Web Developer at Tech Solutions</p>
+      </div>
+
+      <div class="section photos">
+        <h3>Photos</h3>
+        <div>
+          <img src="pexel1.jpg" />
+          <img src="pexel2.jpg" />
+          <img src="pexel3.jpg" />
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Friend Requests</h3>
+        <div class="friend-request">
+          <div style="display: flex; align-items: center;">
+            <img src="person1.jpg" alt="Olivia" />
+            <div style="margin-left: 12px;">
+              <strong>Olivia Smith</strong>
+              <p style="margin: 0; font-size: 13px; color: gray;">Biocard</p>
+            </div>
+          </div>
+          <div class="friend-actions">
+            <button class="confirm-btn">Confirm</button>
+            <button class="delete-btn">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>My Story</h3>
+        <div class="story-upload-btn" onclick="openStoryModal()">+ Add Story</div>
+        <img src="upload7.png" style="width: 120px; height: 200px; object-fit: cover; border-radius: 10px;">
+      </div>
+
+      <div class="section">
+        <h3>Create Post</h3>
+        <textarea placeholder="What's on your mind?" rows="3" style="width: 100%; padding: 12px;"></textarea>
+        <input type="file" accept="image/*,video/*" />
+        <button class="edit-btn" style="margin-top: 12px;">Post</button>
+      </div>
+
+      <div class="section">
+        <h3>Recent Post</h3>
+        <p>Had a great time at the Grand Canyon!</p>
+        <img src="pexel4.jpg" style="width: 100%; max-height: 320px; border-radius: 12px;" />
+        <div class="reaction-bar">
+          <button>❤️</button>
+          <button>😂</button>
+          <button>😮</button>
+          <button>😡</button>
+        </div>
+        <div class="comment-box">
+          <input type="text" placeholder="Write a comment...">
+          <button>Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

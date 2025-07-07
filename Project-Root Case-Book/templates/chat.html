@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat | Social Nest</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="html.css" />
+  <style>
+    body {
+      background: var(--body-color);
+      font-family: 'Poppins', sans-serif;
+    }
+    .chat-container {
+      display: flex;
+      max-width: 1200px;
+      height: 90vh;
+      margin: auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .chat-sidebar {
+      width: 30%;
+      background: var(--bg-color);
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 1px solid #ccc;
+    }
+    .chat-sidebar h3 {
+      margin-bottom: 20px;
+    }
+    .chat-user {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    .chat-user img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .chat-window {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .message {
+      margin-bottom: 12px;
+    }
+    .message.sent {
+      text-align: right;
+    }
+    .message .bubble {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 20px;
+      background: #f0f0f0;
+      max-width: 60%;
+    }
+    .message.sent .bubble {
+      background: #1876f2;
+      color: #fff;
+    }
+    .chat-input {
+      display: flex;
+      padding: 10px 20px;
+      border-top: 1px solid #ccc;
+      background: #fafafa;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      outline: none;
+    }
+    .chat-input button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #1876f2;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img src="logo2.png" class="logo" />
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search" />
+      </div>
+      <div class="nav-user-icon online">
+        <img src="pexel7.jpg" class="profile-pic" />
+      </div>
+    </div>
+  </nav>
+
+  <div class="chat-container">
+    <div class="chat-sidebar">
+      <h3>Chats</h3>
+      <div class="chat-user">
+        <img src="person1.jpg" alt="User" />
+        <span>Olivia Smith</span>
+      </div>
+      <div class="chat-user">
+        <img src="person2.jpg" alt="User" />
+        <span>Jackson Lee</span>
+      </div>
+      <div class="chat-user">
+        <img src="person3.jpg" alt="User" />
+        <span>Maria Gomez</span>
+      </div>
+    </div>
+
+    <div class="chat-window">
+      <div class="chat-messages">
+        <div class="message received">
+          <div class="bubble">Hi, how are you?</div>
+        </div>
+        <div class="message sent">
+          <div class="bubble">I'm good, thanks! You?</div>
+        </div>
+        <div class="message received">
+          <div class="bubble">Doing great! Let's catch up later.</div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message..." />
+        <button>Send</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
